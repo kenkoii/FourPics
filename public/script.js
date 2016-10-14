@@ -64,7 +64,7 @@ MyApp.controller('quizController', function($scope, $http) {
     $scope.check = function(){
         console.log(this.answer);
         if(this.answer.toUpperCase()==$scope.quiz[$scope.number].answer){            
-            this.answers.push(this.answer.toUpperCase());
+            this.answers.push(this.answer.toUpperCase() + " <-Correct Answer");
             if($scope.number==$scope.quiz.length-1){
                 $scope.completed = true;
             }
