@@ -1,0 +1,68 @@
+<div class="container">
+
+    <!-- home.html -->
+    <div class="card-panel" ng-if="!checkAnswers">
+        <h1>4 Pics 1 Word</h1>
+
+
+        <div ng-if="!completed">
+            <div class="container">
+                <table>
+                    <tr>
+                        <td><img ng-src="{{quiz[number].img1}}" alt="Description" /></td>
+                        <td><img ng-src="{{quiz[number].img2}}" alt="Description" /></td>
+                    </tr>
+                    <tr>
+                        <td><img ng-src="{{quiz[number].img3}}" alt="Description" /></td>
+                        <td><img ng-src="{{quiz[number].img4}}" alt="Description" /></td>
+                    </tr>
+                </table>
+            </div>
+             <h2>{{ disp }}</h2>
+
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="answer" type="text" class="validate" ng-model="answer">
+                      <label>Answer</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            <p>
+                <button class="btn waves-effect waves-light" ng-click="check()">Submit<i class="material-icons right">send</i></button>
+                <button class="btn waves-effect waves-light" ng-click="checkAnswer()">Check Answers<i class="material-icons right">toc</i></button>
+            </p>        
+        </div>
+
+        <div class="card" ng-if="completed">
+            <div class="card-image">
+              <img src="https://imaginarywars.files.wordpress.com/2012/02/successkid.png">
+              <span class="card-title">Congratulations</span>
+            </div>
+            <div class="card-content">
+              <p>You have successfully completed the quiz!</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Go back</a>
+            </div>
+          </div>
+    </div>
+
+    <div class="card-panel" ng-if="checkAnswers">
+        <h1>4 Pics 1 Word</h1>
+
+        <h2>List of Answers:</h2>
+
+          <ul>
+              <li ng-repeat="x in answers">{{x}}</li>
+          </ul>
+        <p>
+            <button class="btn waves-effect waves-light" ng-click="checkAnswer()">Back<i class="material-icons right">back</i></button>
+        </p>        
+        
+    </div>
+
+</div>
+<!-- /.container -->
